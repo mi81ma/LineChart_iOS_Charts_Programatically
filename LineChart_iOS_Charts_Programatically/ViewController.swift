@@ -121,20 +121,33 @@ class ViewController: UIViewController {
 
         //dataset & Label Name
         let bidsDataSet = LineChartDataSet(values: bidsDataEntries, label: "bid")
-        let astksDataSet = LineChartDataSet(values: asksDataEntries, label: "ask")
+        let asksDataSet = LineChartDataSet(values: asksDataEntries, label: "ask")
+
+        // set fill Color in linechart in order to fill color
+        bidsDataSet.drawFilledEnabled = true
+        bidsDataSet.mode = .cubicBezier
+        bidsDataSet.cubicIntensity = 0.2
+        bidsDataSet.fillColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+
+        asksDataSet.drawFilledEnabled = true
+        asksDataSet.mode = .cubicBezier
+        asksDataSet.cubicIntensity = 0.2
+        asksDataSet.fillColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+
+
 
         //delete Circles
         bidsDataSet.drawCirclesEnabled = false
-        astksDataSet.drawCirclesEnabled = false
+        asksDataSet.drawCirclesEnabled = false
 
         bidsDataSet.setColor(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1))
-        astksDataSet.setColor(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1))
+        asksDataSet.setColor(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1))
 
         print(bidsDataSet)
-        print(astksDataSet)
+        print(asksDataSet)
 
 
-        return LineChartData(dataSets: [bidsDataSet, astksDataSet])
+        return LineChartData(dataSets: [bidsDataSet, asksDataSet])
     }
 
 
